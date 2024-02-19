@@ -44,4 +44,15 @@ public class CustomerService {
 
         return null;
     }
+
+    public void deleteCustomerById(Long id) {
+        Optional<Customer> customer = customerRepository.findById(id);
+        if (customer.isPresent()){
+            customerRepository.deleteById(id);
+        }
+        else {
+            log.info("Aradığınız ID de kullanıcı yoktur!");
+        }
+
+    }
 }
